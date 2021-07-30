@@ -1,50 +1,52 @@
 body {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 10fr 1fr;
-    grid-template-areas: "nav"
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-areas:
+    "nav"
     "main"
     "footer";
-    height: 100vh;
-    width: 100vw;
+  height: 100vh;
+  width: 100vw;
+}
+
+#header-nav {
+  grid-area: nav;
+  height: 100%;
+  border: 1px solid black;
 }
 
 nav {
-    grid-area: nav;
-    display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  height: 100%;
 }
 
 main {
-    grid-area: main;
-    border: 1px solid pink;
-    display: grid;
-    grid-template-areas:
+  grid-area: main;
+  border: 1px solid pink;
+  display: grid;
+  grid-template-areas:
     "content content calender"
     "content content chat";
 }
 
 .main-content {
-    grid-area: content;
-    border: 1px solid blue;
-
+  grid-area: content;
+  border: 1px solid blue;
 }
 
 .calender {
-    grid-area: calender;
-    border: 1px solid violet;
-
+  grid-area: calender;
+  border: 1px solid violet;
 }
 
 .chat {
-    grid-area: chat;
-    border: 1px solid orange;
-
+  grid-area: chat;
+  border: 1px solid orange;
 }
 
 footer {
-    grid-area: footer;
-    border: 1px solid black;
-
+  grid-area: footer;
+  border: 1px solid black;
 }
