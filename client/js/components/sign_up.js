@@ -21,11 +21,11 @@ function renderSignUp() {
 </section>
   `
 
-  const signUpForm = document.querySelector("#sign-up-form");
+const signUpForm = document.querySelector("#sign-up-form");
 
 signUpForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(signUpForm));
+  const data = Object.fromEntries(new FormData(signUpForm), ["id", signUpForm.id]);
   axios
     .post("/api/users", data)
     .then(() => {

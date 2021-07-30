@@ -16,6 +16,18 @@ const User = {
       console.log("Error:" + String(error));
   })
   },
+
+  login(email, password) {
+    const sql = 'SELLECT * FROM users WHERE email = $1';
+
+    const userData = db.query(sql, [email]).then(dbResponse => {
+      return dbResponse.rows[0]
+    })
+    if(bcrypt.compareSync(password, userData.password_digest)) {
+      console.log("logged in! ")
+    } else {
+      throw validationError("Password is incorrect");    }
+  }
 };
 
 module.exports = User;
