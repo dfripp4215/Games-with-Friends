@@ -20,4 +20,21 @@ function renderSignUp() {
   </form>
 </section>
   `
+
+  const signUpForm = document.querySelector("#sign-up-form");
+
+signUpForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(signUpForm));
+  axios
+    .post("/api/users", data)
+    .then(() => {
+      window.location = "/";
+    })
+    .catch((errorRes) => {
+      document.querySelector("#errors").innerHTML =
+        errorRes.response.data.message;
+    });
+});
 }
+

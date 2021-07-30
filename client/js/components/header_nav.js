@@ -18,6 +18,6 @@ renderHeaderNav()
 
 function render(component) {
     if (component === 'signUp') {
-        console.log('click')
+        renderSignUp()
     }
 }
