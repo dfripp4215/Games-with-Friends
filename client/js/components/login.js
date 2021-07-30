@@ -22,7 +22,7 @@ function renderLogin() {
   
   loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const data = Object.fromEntries(new FormData(loginForm), ["id", loginForm.id]);
+    const data = Object.fromEntries(new FormData(loginForm));
     axios
       .post("/api/users", data)
       .then(() => {

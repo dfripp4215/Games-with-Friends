@@ -2,7 +2,7 @@ function renderSignUp() {
   document.querySelector("#main-content").innerHTML = `
   <section class="sign_up">
   <h1>Sign Up</h1>
-  <form action="/users" method="POST" id="sign-up-form">
+  <form action="/signup" method="POST" id="sign-up-form">
     <section id="errors"></section>
     <fieldset>
       <label for="">Name:</label><br />
@@ -21,11 +21,11 @@ function renderSignUp() {
 </section>
   `
 
-const signUpForm = document.querySelector("#sign-up-form");
+  const signUpForm = document.querySelector("#sign-up-form");
 
 signUpForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(signUpForm), ["id", signUpForm.id]);
+  const data = Object.fromEntries(new FormData(signUpForm));
   axios
     .post("/api/users", data)
     .then(() => {
