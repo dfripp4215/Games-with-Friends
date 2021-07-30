@@ -24,7 +24,9 @@ const User = {
       return dbResponse.rows[0]
     })
     if(bcrypt.compareSync(password, userData.password_digest)) {
-      console.log("logged in! ")
+      state.user.name = userData.name
+      state.user.email = userData.email
+      state.user.loggedIn = true
     } else {
       throw validationError("Password is incorrect");    }
   }

@@ -11,8 +11,6 @@ function validateUser(req, res, next) {
   }
   if (isBlank(password)) {
     throw validationError("Password is required");
-  } else if (password.length < 8) {
-    throw validationError("Password needs to be at least 8 characters long");
   }
   next();
 }

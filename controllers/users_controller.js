@@ -15,7 +15,6 @@ router.post("/login", validateLogin, (req, res) => {
       message: "logged in!",
     });
   });
-  res.redirect("/")
 });
 
 router.post("/signup", validateUser, (req, res) => {
