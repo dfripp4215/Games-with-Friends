@@ -29,3 +29,9 @@ CREATE TABLE user_games(
   user_id INTEGER,
   game_id INTEGER
 );
+
+CREATE TABLE posts(
+  id SERIAL PRIMARY KEY,
+  post_title TEXT,
+  body TEXT
+);
