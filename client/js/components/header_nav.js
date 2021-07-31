@@ -14,10 +14,16 @@ function renderHeaderNav() {
         <div class="navigation">
         <p>Welcome to Uhno!<p>
             <ul>
-                <li class="material-icons sign-up" onClick="render('login')">login</li>
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
                 <li class="material-icons profile" onClick="render('profile')">account_circle</li>
+                    <script>
+                    if (sessionInfo.data.user.loggedIn) {
+                        <li class="material-icons logout" onClick="render('logout')">logout</li>
+                    } else {
+                        <li class="material-icons sign-up" onClick="render('login')">login</li>
+                    }
+                </script>
             </ul>
         </div>
         <div class="mode-slider">
@@ -36,6 +42,9 @@ function render(component) {
     }
     if (component === 'login') {
         renderLogin()
+    }
+    if (component === 'login') {
+        // logut()
     }
     if (component === 'addGame') {
         console.log("nothing here yet")

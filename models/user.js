@@ -1,5 +1,5 @@
 const db = require("../db/db");
-
+const bcrypt = require('bcryptjs')
 
 const User = {
   create(name, email, password) {
