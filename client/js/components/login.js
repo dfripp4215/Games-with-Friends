@@ -1,13 +1,9 @@
-function renderSignUp() {
+function renderLogin() {
   document.querySelector("#main-content").innerHTML = `
-  <section class="sign_up">
-  <h1>Sign Up</h1>
-  <form action="/signup" method="POST" id="sign-up-form">
+  <section class="login">
+  <h1>Login</h1>
+  <form action="/login" method="POST" id="login-form">
     <section id="errors"></section>
-    <fieldset>
-      <label for="">Name:</label><br />
-      <input type="text" name="name" />
-    </fieldset>
     <fieldset>
       <label for="">Email:</label><br />
       <input type="text" name="email" />
@@ -16,18 +12,19 @@ function renderSignUp() {
       <label for="">Password:</label><br />
       <input type="password" name="password" />
     </fieldset>
-    <button>Sign up</button>
+    <button>Login</button>
   </form>
 </section>
+<div onClick="render('signUp')"><a>Don't have an account? sign up here!</a></div>
   `
 
-const signUpForm = document.querySelector("#sign-up-form");
-
-signUpForm.addEventListener("submit", (event) => {
+const loginForm = document.querySelector("#login-form");
+  
+loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = Object.fromEntries(new FormData(signUpForm));
+  const data = Object.fromEntries(new FormData(loginForm));
   axios
-    .post("/api/users", data)
+    .post("/api/sessions", data)
     .then(() => {
       window.location = "/";
     })
@@ -35,6 +32,6 @@ signUpForm.addEventListener("submit", (event) => {
       document.querySelector("#errors").innerHTML =
         errorRes.response.data.message;
     });
-});
+  });
 }
 

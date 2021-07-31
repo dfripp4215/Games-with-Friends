@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
 const db = require("../db/db");
+
 
 const User = {
   create(name, email, password) {
@@ -16,6 +16,14 @@ const User = {
       console.log("Error:" + String(error));
   })
   },
+
+  findUserByEmail(email) {
+    const sql = `SELECT * FROM users WHERE email = $1`;
+
+   return db.query(sql, [email]).then((dbResponse) => {
+      return dbResponse.rows[0]
+    })
+  }
 };
 
 module.exports = User;

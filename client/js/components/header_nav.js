@@ -1,10 +1,18 @@
 function renderHeaderNav() {
+    let welcomeMessage = ''
+
+    // if(state.user.loggedIn === true) {
+    //     welcomeMessage = `<p>Welcome</p>`
+    // } else {
+    //     welcomeMessage = ''
+    // }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
         <div class="logo">Logo</div>
         <div class="navigation">
             <ul>
-                <li class="material-icons sign-up" onClick="render('signUp')">login</li>
+            ${welcomeMessage}
+                <li class="material-icons sign-up" onClick="render('login')">login</li>
             </ul>
         </div><div class="slider">slider</div>
     </nav>
@@ -13,11 +21,11 @@ function renderHeaderNav() {
 
 renderHeaderNav()
 
-
-
-
 function render(component) {
     if (component === 'signUp') {
         renderSignUp()
+    }
+    if (component === 'login') {
+        renderLogin()
     }
 }
