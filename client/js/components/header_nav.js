@@ -8,7 +8,9 @@ function renderHeaderNav() {
     // }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
-        <div class="logo">Logo</div>
+        <img class="logo"
+        src="/images/logo.png"
+        alt="uhno!logo" >
         <div class="navigation">
             <ul>
             ${welcomeMessage}
