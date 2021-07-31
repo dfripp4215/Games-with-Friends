@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
 const db = require("../db/db");
+
 
 const User = {
   create(name, email, password) {
@@ -17,18 +17,12 @@ const User = {
   })
   },
 
-  login(email, password) {
-    const sql = 'SELLECT * FROM users WHERE email = $1';
+  findUserByEmail(email) {
+    const sql = `SELECT * FROM users WHERE email = $1`;
 
-    const userData = db.query(sql, [email]).then(dbResponse => {
+   return db.query(sql, [email]).then((dbResponse) => {
       return dbResponse.rows[0]
     })
-    if(bcrypt.compareSync(password, userData.password_digest)) {
-      state.user.name = userData.name
-      state.user.email = userData.email
-      state.user.loggedIn = true
-    } else {
-      throw validationError("Password is incorrect");    }
   }
 };
 

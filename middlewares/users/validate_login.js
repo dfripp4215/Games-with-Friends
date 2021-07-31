@@ -1,7 +1,7 @@
 const isBlank = require("../tools/is_blank");
 const validationError = require("../tools/validation_error");
 
-function validateUser(req, res, next) {
+function validateLogin(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
 
@@ -15,4 +15,4 @@ function validateUser(req, res, next) {
   next();
 }
 
-module.exports = validateUser;
+module.exports = validateLogin;

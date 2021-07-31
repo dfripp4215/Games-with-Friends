@@ -18,20 +18,20 @@ function renderLogin() {
 <div onClick="render('signUp')"><a>Don't have an account? sign up here!</a></div>
   `
 
-  const loginForm = document.querySelector("#login-form");
+const loginForm = document.querySelector("#login-form");
   
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = Object.fromEntries(new FormData(loginForm));
-    axios
-      .post("/api/users", data)
-      .then(() => {
-        window.location = "/";
-      })
-      .catch((errorRes) => {
-        document.querySelector("#errors").innerHTML =
-          errorRes.response.data.message;
-      });
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(loginForm));
+  axios
+    .post("/api/sessions", data)
+    .then(() => {
+      window.location = "/";
+    })
+    .catch((errorRes) => {
+      document.querySelector("#errors").innerHTML =
+        errorRes.response.data.message;
+    });
   });
 }
 

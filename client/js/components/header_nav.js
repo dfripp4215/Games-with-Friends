@@ -1,11 +1,11 @@
 function renderHeaderNav() {
     let welcomeMessage = ''
 
-    if(state.user.loggedIn === true) {
-        welcomeMessage = `<p>Welcome, ${state.user.name}</p>`
-    } else {
-        welcomeMessage = ''
-    }
+    // if(state.user.loggedIn === true) {
+    //     welcomeMessage = `<p>Welcome</p>`
+    // } else {
+    //     welcomeMessage = ''
+    // }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
         <div class="logo">Logo</div>
