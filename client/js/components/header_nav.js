@@ -8,13 +8,22 @@ function renderHeaderNav() {
     // }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
-        <div class="logo">Logo</div>
+        <img class="logo"
+        src="/images/logo.png"
+        alt="uhno!logo" >
         <div class="navigation">
+        <p>Welcome to Uhno!<p>
             <ul>
-            ${welcomeMessage}
                 <li class="material-icons sign-up" onClick="render('login')">login</li>
+                <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
+                <li class="material-icons library" onClick="render('library')">games</li>
+                <li class="material-icons profile" onClick="render('profile')">account_circle</li>
             </ul>
-        </div><div class="slider">slider</div>
+        </div>
+        <div class="mode-slider">
+        Dark mode
+            <div class="material-icons dark-mode-off">toggle_off</div>
+        </div>
     </nav>
     `
 };
@@ -27,5 +36,14 @@ function render(component) {
     }
     if (component === 'login') {
         renderLogin()
+    }
+    if (component === 'addGame') {
+        console.log("nothing here yet")
+    }
+    if (component === 'library') {
+        console.log("no library")
+    }
+    if (component === 'profile') {
+        console.log("no profile yet")
     }
 }
