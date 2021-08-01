@@ -6,6 +6,7 @@ Storage.prototype.getObject = function(key) {
   return JSON.parse(this.getItem(key));
 }
 
+localStorage.setObject('userData', {user: {name: '' , email: '', loggedIn: false}})
+
 const userData = localStorage.getObject('userData');
 
-localStorage.setObject('userData', {user: {name: '' , email: '', loggedIn: false}})
