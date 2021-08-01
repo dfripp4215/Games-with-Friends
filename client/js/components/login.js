@@ -25,8 +25,9 @@ loginForm.addEventListener("submit", (event) => {
   const data = Object.fromEntries(new FormData(loginForm));
   axios
     .post("/api/sessions", data)
-    .then(() => {
+    .then((session) => {
       window.location = "/";
+      localStorage.setItem('userData', JSON.stringify(session.data.user))
     })
     .catch((errorRes) => {
       document.querySelector("#errors").innerHTML =

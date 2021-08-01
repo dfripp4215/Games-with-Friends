@@ -1,11 +1,4 @@
 function renderHeaderNav() {
-    let welcomeMessage = ''
-
-    // if(state.user.loggedIn === true) {
-    //     welcomeMessage = `<p>Welcome</p>`
-    // } else {
-    //     welcomeMessage = ''
-    // }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
         <img class="logo"
@@ -17,13 +10,7 @@ function renderHeaderNav() {
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
                 <li class="material-icons profile" onClick="render('profile')">account_circle</li>
-                    <script>
-                    if (sessionInfo.data.user.loggedIn) {
-                        <li class="material-icons logout" onClick="render('logout')">logout</li>
-                    } else {
-                        <li class="material-icons sign-up" onClick="render('login')">login</li>
-                    }
-                </script>
+                 <li class="material-icons sign-up" onClick="render('login')">login</li>\
             </ul>
         </div>
         <div class="mode-slider">
@@ -33,6 +20,8 @@ function renderHeaderNav() {
     </nav>
     `
 };
+
+//gotta figure out the above thing
 
 renderHeaderNav()
 
@@ -45,6 +34,8 @@ function render(component) {
     }
     if (component === 'login') {
         // logut()
+        // <li class="material-icons logout" onClick="render('logout')">logout</li>
+
     }
     if (component === 'addGame') {
         console.log("nothing here yet")

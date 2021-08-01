@@ -17,6 +17,7 @@ router.post("/", validateLogin, (req, res) => {
       req.session.user.email = user.email
       req.session.user.loggedIn = true
       res.json(req.session)
+      return req.session.user
     } else {
       throw validationError("Password is incorrect or user does not exist")
     }
