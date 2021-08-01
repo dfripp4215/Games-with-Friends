@@ -7,3 +7,10 @@ CREATE TABLE users(
   email TEXT,
   password_digest TEXT
 );
+
+CREATE TABLE games(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  RAWGer_id INTEGER,
+  STEAM_id INTEGER
+);
