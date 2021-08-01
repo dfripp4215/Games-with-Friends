@@ -1,7 +1,7 @@
 function renderHeaderNav() {
     let authIcon
     if(userData.loggedIn) {
-        authIcon =  `<li class="material-icons logout" onClick="render('logout')">logout</li>`
+        authIcon =  `<li class="material-icons logout" onClick="logout()">logout</li>`
     } else {
         authIcon =  `<li class="material-icons sign-up" onClick="render('login')">login</li>`
     }
@@ -38,9 +38,6 @@ function render(component) {
     if (component === 'login') {
         renderLogin()
     }
-    if (component === 'login') {
-        // logut()
-    }
     if (component === 'addGame') {
         console.log("nothing here yet")
     }
@@ -51,3 +48,16 @@ function render(component) {
         console.log("no profile yet")
     }
 }
+
+function logout() {
+    axios
+        .delete("/api/sessions")
+        .then((session) => {
+        window.location = "/";
+        localStorage.setObject('userData', {user: {name: '' , email: '', loggedIn: false}})
+        })
+        .catch((errorRes) => {
+        document.querySelector("#errors").innerHTML =
+            errorRes.response.data.message;
+        });
+    }
