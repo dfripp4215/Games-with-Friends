@@ -1,4 +1,10 @@
 function renderHeaderNav() {
+    let authIcon
+    if(userData.loggedIn) {
+        authIcon =  `<li class="material-icons logout" onClick="render('logout')">logout</li>`
+    } else {
+        authIcon =  `<li class="material-icons sign-up" onClick="render('login')">login</li>`
+    }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
         <img class="logo"
@@ -10,7 +16,7 @@ function renderHeaderNav() {
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
                 <li class="material-icons profile" onClick="render('profile')">account_circle</li>
-                 <li class="material-icons sign-up" onClick="render('login')">login</li>\
+                ${authIcon}
             </ul>
         </div>
         <div class="mode-slider">
@@ -34,8 +40,6 @@ function render(component) {
     }
     if (component === 'login') {
         // logut()
-        // <li class="material-icons logout" onClick="render('logout')">logout</li>
-
     }
     if (component === 'addGame') {
         console.log("nothing here yet")

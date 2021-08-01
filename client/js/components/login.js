@@ -27,7 +27,7 @@ loginForm.addEventListener("submit", (event) => {
     .post("/api/sessions", data)
     .then((session) => {
       window.location = "/";
-      localStorage.setItem('userData', JSON.stringify(session.data.user))
+      localStorage.setObject('userData', session.data.user)
     })
     .catch((errorRes) => {
       document.querySelector("#errors").innerHTML =
