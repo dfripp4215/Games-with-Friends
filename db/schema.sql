@@ -7,3 +7,11 @@ CREATE TABLE users(
   email TEXT,
   password_digest TEXT
 );
+
+CREATE TABLE events(
+  id SERIAL PRIMARY KEY,
+  time TIMESTAMP,
+  userId TEXT,
+  friends TEXT [],
+  date DATE NOT NULL
+);
