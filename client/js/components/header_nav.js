@@ -1,11 +1,10 @@
 function renderHeaderNav() {
-    let welcomeMessage = ''
-
-    // if(state.user.loggedIn === true) {
-    //     welcomeMessage = `<p>Welcome</p>`
-    // } else {
-    //     welcomeMessage = ''
-    // }
+    let authIcon
+    if(userData.loggedIn) {
+        authIcon =  `<li class="material-icons logout" onClick="logout()">logout</li>`
+    } else {
+        authIcon =  `<li class="material-icons sign-up" onClick="render('login')">login</li>`
+    }
     document.querySelector('#header-nav').innerHTML = `
     <nav>
         <img class="logo"
@@ -14,10 +13,10 @@ function renderHeaderNav() {
         <div class="navigation">
         <p>Welcome to Uhno!<p>
             <ul>
-                <li class="material-icons sign-up" onClick="render('login')">login</li>
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
                 <li class="material-icons profile" onClick="render('profile')">account_circle</li>
+                ${authIcon}
             </ul>
         </div>
         <div class="mode-slider">
@@ -27,6 +26,8 @@ function renderHeaderNav() {
     </nav>
     `
 };
+
+//gotta figure out the above thing
 
 renderHeaderNav()
 
@@ -47,3 +48,16 @@ function render(component) {
         console.log("no profile yet")
     }
 }
+
+function logout() {
+    axios
+        .delete("/api/sessions")
+        .then((session) => {
+        window.location = "/";
+        localStorage.setObject('userData', {user: {name: '' , email: '', loggedIn: false}})
+        })
+        .catch((errorRes) => {
+        document.querySelector("#errors").innerHTML =
+            errorRes.response.data.message;
+        });
+    }

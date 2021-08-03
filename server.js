@@ -8,26 +8,28 @@ const session = require('express-session');
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-var sess = {
-  secret: 'keyboard cat',
-  cookie: {}
+var sessionConfig = {
+  secret: process.env.SESSION_SECRET,
+  cookie: {},
+  saveUninitialized: false,
+  resave: false,
 }
 
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1) // trust first proxy
-  sess.cookie.secure = true // serve secure cookies
+  sessionConfig.cookie.secure = true // serve secure cookies
 }
 
 app.use(logger);
-app.use(session(sess))
-app.use(express.static("client"));
 app.use(express.json());
+app.use(express.static("client"));
+app.use(session(sessionConfig))
 app.use("/api/users", userController);
 app.use("/api/sessions", sessionsController);
 app.use(errorHandler);
