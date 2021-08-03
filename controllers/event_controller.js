@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', validateEvent, (req, res) => {
 
     const { date, friends } = req.body
-    const userId = User.findUserByEmail(req.session.user.email).then((res) => res.id)
+    const userId = User.findUserByEmail(req.session.user.email).then((dbRes) => dbRes.rows[0].id)
 
     Event.create(userId, friends, date)
         .then(event => res.json({
