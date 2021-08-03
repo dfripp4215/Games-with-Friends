@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.post('/', validateEvent, (req, res) => {
 
     const {date, friends} = req.body
-    const userId = getCurrentUserId()
+    const userId = getUserByEmail(req.session.user.email)
     
     Event.create(userId, friends, date)
         .then(event => res.json({
