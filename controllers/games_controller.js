@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const Game = require("../models/game");
 
 router.post("/", (req, res) => {
   const gameName = req.body.name;
@@ -12,6 +12,5 @@ router.post("/", (req, res) => {
     });
   });
 });
-
 
 module.exports = router;
