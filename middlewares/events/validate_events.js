@@ -14,4 +14,4 @@ function validateEvent(req, res, next) {
     next()
 }
 
-module.exports = validateTreasure
+module.exports = validateEvent

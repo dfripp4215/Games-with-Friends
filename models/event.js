@@ -6,7 +6,7 @@ const Event = {
         const userID = getCurrentUserById()
 
         const sql = `
-            INSERT INTO events(userID, friends) VALUES($1, $2 $3) RETURNING *
+            INSERT INTO events(userID, friends, date) VALUES($1, $2 $3) RETURNING *
         `
 
         return db.query(sql, [userId, friends, date]).then((dbRes) => dbRes.rows[0])
