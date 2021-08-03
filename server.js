@@ -6,7 +6,6 @@ const sessionsController = require("./controllers/sessions_controller");
 const errorHandler = require("./middlewares/error_handler");
 const session = require('express-session');
 
-
 const app = express()
 const port = process.env.PORT || 3000
 
