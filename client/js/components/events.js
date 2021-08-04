@@ -8,9 +8,9 @@ function renderEvents() {
 
         <h2>Create Event<h2>
         <label for="event-friends">Choose your friends</label>
-        <select name="friends" id="event-friends" multiple>
+        <div id='friends-checkbox'>
             
-        </select>
+        </div>
 
         <label for="event-date">Event Date:</label>
         <input type="date" id='event-date' name='date' min='${Date()}'>
@@ -48,7 +48,8 @@ function deleteEvent(event) {
 function friends() {
     return state.friends.map(friend => {
         `
-        <option value="${friend}">${friend}</option>
+        <input type="checkbox" id="${friend}" name="friend">
+        <label for="${friend}">${friend}</label>
         `
     }).join('')
 }
