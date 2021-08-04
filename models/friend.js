@@ -10,7 +10,7 @@ const Friend = {
       },
     
       addFriend(friendEmail, userEmail) {
-        const friendsList = this.findFriends(userData.user.email)
+        const friendsList = this.findFriends(userEmail)
         const sql = `UPDATE users SET friends[${friendsList[0].length}] = $1 WHERE email = $2`
     
         return db.query(sql, [friendEmail, userEmail]).then((dbResponse) => {
