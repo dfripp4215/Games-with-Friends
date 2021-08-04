@@ -12,15 +12,15 @@ const User = {
 
     return db.query(sql, [name, email, password_digest]).then((dbResponse) => {
       return dbResponse.rows[0];
-    }).catch(function(error ){
+    }).catch(function (error) {
       console.log("Error:" + String(error));
-  })
+    })
   },
 
   findUserByEmail(email) {
     const sql = `SELECT * FROM users WHERE email = $1`;
 
-   return db.query(sql, [email]).then((dbResponse) => {
+    return db.query(sql, [email]).then((dbResponse) => {
       return dbResponse.rows[0]
     })
   }

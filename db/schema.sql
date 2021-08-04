@@ -5,13 +5,14 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   name TEXT,
   email TEXT,
-  password_digest TEXT
+  password_digest TEXT,
+  friends TEXT []
 );
 
 CREATE TABLE events(
   id SERIAL PRIMARY KEY,
   time TIMESTAMP,
   userId TEXT,
-  friends TEXT [],
+  invitedFriends TEXT [],
   date DATE NOT NULL
 );

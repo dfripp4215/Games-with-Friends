@@ -7,16 +7,16 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     Event
-        .findAll()
+        .findAll(userData.user.email)
         .then(events => res.json(events))
 })
 
 router.post('/', validateEvent, (req, res) => {
 
-    const { date, friends } = req.body
-    const userId = User.findUserByEmail(userData.user.email).then((dbRes) => dbRes.rows[0].id)
+    const { friends, date } = req.body
+    const userEmail = userData.user.email
 
-    Event.create(userId, friends, date)
+    Event.create(userEmail, friends, date)
         .then(event => res.json({
             event: event,
             message: "Created event successfully"
