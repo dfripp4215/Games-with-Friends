@@ -1,7 +1,7 @@
 // Create the initial data to use in our app
 const state = {
     events: [],
-    friends: ['friend1', 'friend2', 'friend3']
+    friends: []
 }
 
 function getEvents() {
