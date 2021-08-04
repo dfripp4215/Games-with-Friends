@@ -59,13 +59,11 @@ const eventRender = {
     }
 }
 
-eventRender.eventsLoggedIn()
-
-// if (userData.user.loggedIn) {
-//     eventRender.eventsLoggedIn()
-// } else {
-//     eventRender.eventsLoggedOut()
-// }
+if (userData.user.loggedIn) {
+    eventRender.eventsLoggedIn()
+} else {
+    eventRender.eventsLoggedOut()
+}
 
 
 function createEvent(event) {
