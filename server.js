@@ -32,6 +32,7 @@ app.use(express.json());
 app.use(express.static("client"));
 app.use(session(sessionConfig))
 app.use("/api/users", userController);
+app.use("/api/sessions", sessionsController);
 app.use("/api/events", eventController)
 app.use("/api/friends", friendController)
 app.use(errorHandler);
