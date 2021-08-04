@@ -11,21 +11,25 @@ function renderAddGame() {
     <button>Add Game</button>
   </form>
 </section>
-  `
+  `;
 
-const addGameForm = document.querySelector("#add-game-form");
+  const addGameForm = document.querySelector("#add-game-form");
 
-addGameForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = Object.fromEntries(new FormData(addGameForm));
-  axios
-    .post("/api/games", data)
-    .then(() => {
-      window.location = "/";
-    })
-    .catch((errorRes) => {
-      document.querySelector("#errors").innerHTML =
-        errorRes.response.data.message;
-    });
-});
+  addGameForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(addGameForm), [
+      "userEmail",
+      userData.email,
+    ]);
+    axios
+      .post("/api/games", data)
+      .then((res) => {
+        window.location = "/";
+        console.log(res);
+      })
+      .catch((errorRes) => {
+        document.querySelector("#errors").innerHTML =
+          errorRes.response.data.message;
+      });
+  });
 }
