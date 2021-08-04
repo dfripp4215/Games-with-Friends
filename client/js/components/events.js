@@ -1,17 +1,17 @@
-const renderEvents = {
-    loggedIn() {
+const eventRender = {
+    eventsLoggedIn() {
         document.querySelector('.event-container').innerHTML = `
         <h2>Your Events</h2>
         <div id='events-box'>
             <section id='events-list'>
-                ${events()}
+                ${eventRender.eventGetter()}
             </section>
     
-            <h2>Create Event<h2>
-            <label for="event-friends">Choose your friends</label>
+            <h2>Create Event</h2>
+            <h3>Select Friends</h3>
             <form onSubmit="createEvent(event)">
                 <div id='friends-checkbox'>
-                    
+                    ${eventRender.friendsSelector()}
                 </div>
     
                 <label for="event-date">Event Date:</label>
@@ -21,35 +21,53 @@ const renderEvents = {
         </div>
         `
     },
-    
-    loggedOut() {
+
+    eventsLoggedOut() {
         document.querySelector('.event-container').innerHTML = `
             <h2>Loggin to see your events</h2>
         `
+    },
+
+    eventGetter() {
+        if (state.events.length !== 0) {
+            return state.events.map(event => {
+                `
+                <section class="event" data-id=${event.id}>
+                    <li class='event-li'>
+                            Date: ${event.date} Friends: <span>${event.friends.join(', ')}</span>
+                    </li>
+                    <span class="material-icons delete-event" onClick="deleteEvent(event)">delete</span>
+                </section>
+                `
+            }).join('')
+        } else {
+            return `<p>Oh no! Looks like you have no events. Go below to make one!</p>`
+        }
+    },
+
+// TODO - Need access to friends list to render them into event-friends
+    friendsSelector() {
+        if (state.friends.length !== 0) {
+            return state.friends.map(friend => {
+                `
+                <input type="checkbox" id="${friend}" name="friend">
+                <label for="${friend}">${friend}</label>
+                `
+            }).join('')
+        } else {
+            return `<p>Oh no! Looks like your friend list is empty. Add some friends to start making events!</p>`
+        }
     }
+}
 
-} 
-
-renderEvents.loggedIn()
+eventRender.eventsLoggedIn()
 
 // if (userData.user.loggedIn) {
-//     renderEvents.loggedIn()
+//     eventRender.eventsLoggedIn()
 // } else {
-//     renderEvents.loggedOut()
+//     eventRender.eventsLoggedOut()
 // }
 
-function events() {
-    return state.events.map(event => {
-        `
-        <section class="event" data-id=${event.id}>
-            <li class='event-li'>
-                Date: ${event.date} Friends: <span>${event.friends.join(', ')}</span>
-            </li>
-            <span class="material-icons delete-event" onClick="deleteEvent(event)">delete</span>
-        </section>
-        `
-    }).join('')
-}
 
 function createEvent(event) {
     event.preventDefault()
@@ -80,12 +98,4 @@ function deleteEvent(event) {
         })
 }
 
-// TODO - Need access to friends list to render them into event-friends
-function friends() {
-    return state.friends.map(friend => {
-        `
-        <input type="checkbox" id="${friend}" name="friend">
-        <label for="${friend}">${friend}</label>
-        `
-    }).join('')
-}
+
