@@ -1,21 +1,19 @@
 const db = require("../db/db");
 
 const Event = {
-    create(friends, date) {
-        // TODO Make getCurrentUserById function
-        const userId = findUserByEmail(userData.user.email).then(dbRes => dbRes.rows[0].id)
+    create(userEmail, invitedFriends, date) {
 
         const sql = `
-            INSERT INTO events(userID, friends, date) VALUES($1, $2 $3) RETURNING *
+            INSERT INTO events(userEmail, invitedFriends, date) VALUES($1, $2 $3) RETURNING *
         `
 
-        return db.query(sql, [userId, friends, date]).then((dbRes) => dbRes.rows[0])
+        return db.query(sql, [userEmail, invitedFriends, date]).then(dbRes => dbRes.rows[0])
     },
 
-    findAll(userId) {
-        const sql = `SELECT * FROM events WHERE userId = $1`
+    findAll(userEmail) {
+        const sql = `SELECT * FROM events WHERE email = $1`
 
-        return db.query(sql, [userId]).then(dbRes => dbRes.rows)
+        return db.query(sql, [userEmail]).then(dbRes => dbRes.rows)
     },
 
     delete(id) {

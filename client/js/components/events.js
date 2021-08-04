@@ -45,12 +45,11 @@ const eventRender = {
         }
     },
 
-// TODO - Need access to friends list to render them into event-friends
     friendsSelector() {
         if (state.friends.length !== 0) {
             return state.friends.map(friend => {
                 `
-                <input type="checkbox" id="${friend}" name="friend">
+                <input type="checkbox" id="${friend}" class='friend' name="friend">
                 <label for="${friend}">${friend}</label>
                 `
             }).join('')
@@ -60,13 +59,11 @@ const eventRender = {
     }
 }
 
-eventRender.eventsLoggedIn()
-
-// if (userData.user.loggedIn) {
-//     eventRender.eventsLoggedIn()
-// } else {
-//     eventRender.eventsLoggedOut()
-// }
+if (userData.user.loggedIn) {
+    eventRender.eventsLoggedIn()
+} else {
+    eventRender.eventsLoggedOut()
+}
 
 
 function createEvent(event) {
