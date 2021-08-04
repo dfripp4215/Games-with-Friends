@@ -3,7 +3,7 @@ const db = require("../db/db");
 const Event = {
     create(friends, date) {
         // TODO Make getCurrentUserById function
-        const userId = findUserByEmail(req.session.user.email).then(dbRes => dbRes.rows[0].id)
+        const userId = findUserByEmail(userData.user.email).then(dbRes => dbRes.rows[0].id)
 
         const sql = `
             INSERT INTO events(userID, friends, date) VALUES($1, $2 $3) RETURNING *
