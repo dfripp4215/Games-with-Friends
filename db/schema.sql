@@ -8,10 +8,23 @@ CREATE TABLE users(
   password_digest TEXT
 );
 
+CREATE TABLE games(
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  RAWGer_id INTEGER,
+  STEAM_id INTEGER
+);
+
 CREATE TABLE events(
   id SERIAL PRIMARY KEY,
   time TIMESTAMP,
   userId TEXT,
   friends TEXT [],
   date DATE NOT NULL
+);
+
+CREATE TABLE user_games(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  game_id INTEGER
 );
