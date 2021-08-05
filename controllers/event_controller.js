@@ -1,6 +1,5 @@
 const express = require("express");
 const Event = require("../models/event");
-const User = require("../models/user")
 const validateEvent = require("../middlewares/events/validate_events");
 
 const router = express.Router();
