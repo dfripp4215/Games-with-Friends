@@ -34,7 +34,7 @@ const eventRender = {
                 `
                 <section class="event" data-id=${event.id}>
                     <li class='event-li'>
-                            Date: ${event.date} Friends: <span>${event.friends.join(', ')}</span>
+                        Date: ${event.date} Friends: <span>${event.friends.join(', ')}</span>
                     </li>
                     <span class="material-icons delete-event" onClick="deleteEvent(event)">delete</span>
                 </section>
@@ -59,19 +59,11 @@ const eventRender = {
     }
 }
 
-<<<<<<< HEAD
-// if (userData.email) {
-//     eventRender.eventsLoggedIn();
-// } else {
-//     eventRender.eventsLoggedOut();
-// };
-=======
-if (userData.user.loggedIn) {
+if (userData.email) {
     eventRender.eventsLoggedIn();
 } else {
     eventRender.eventsLoggedOut();
 };
->>>>>>> 2fedbe6f818d3b93d7d00a8f8dff3fca571adbf4
 
 
 function createEvent(event) {
