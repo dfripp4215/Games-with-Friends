@@ -59,11 +59,19 @@ const eventRender = {
     }
 }
 
+<<<<<<< HEAD
 // if (userData.email) {
 //     eventRender.eventsLoggedIn();
 // } else {
 //     eventRender.eventsLoggedOut();
 // };
+=======
+if (userData.user.loggedIn) {
+    eventRender.eventsLoggedIn();
+} else {
+    eventRender.eventsLoggedOut();
+};
+>>>>>>> 2fedbe6f818d3b93d7d00a8f8dff3fca571adbf4
 
 
 function createEvent(event) {

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     Friend
-        .findFriends()
+        .findFriends(userData.email)
         .then(friends => res.json(friends));
 })
 

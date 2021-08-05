@@ -49,7 +49,7 @@ function render(component) {
         console.log("no profile yet")
     }
     if (component === 'addFriend') {
-        renderAddFriend
+        renderAddFriend()
     }
 }
 
