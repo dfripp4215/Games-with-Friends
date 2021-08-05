@@ -7,6 +7,7 @@ const userController = require("./controllers/users_controller");
 const eventController = require('./controllers/event_controller');
 const friendController = require('./controllers/friend_controller');
 const sessionsController = require("./controllers/sessions_controller");
+const gamesController = require("./controllers/games_controller");
 const errorHandler = require("./middlewares/error_handler");
 const session = require("express-session");
 

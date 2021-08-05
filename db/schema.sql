@@ -19,8 +19,8 @@ CREATE TABLE games(
 CREATE TABLE events(
   id SERIAL PRIMARY KEY,
   time TIMESTAMP,
-  userId TEXT,
-  invitedFriends TEXT [],
+  user_email TEXT,
+  invited_friends TEXT [],
   date DATE NOT NULL
 );
 

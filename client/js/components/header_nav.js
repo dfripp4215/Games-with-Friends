@@ -40,7 +40,7 @@ function render(component) {
         renderLogin()
     }
     if (component === 'addGame') {
-        renderAddGame()
+        console.log("nothing here yet")
     }
     if (component === 'library') {
         console.log("no library")
@@ -49,7 +49,7 @@ function render(component) {
         console.log("no profile yet")
     }
     if (component === 'addFriend') {
-        renderAddFriend()
+        renderAddFriend
     }
 }
 

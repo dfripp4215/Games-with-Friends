@@ -2,19 +2,19 @@
 const state = {
     events: [],
     friends: []
-}
+};
 
 function getEvents() {
     axios
         .get('/api/events')
-        .then(response => state.events = response.data)
-}
+        .then(response => state.events = response.data);
+};
 
 function getFriend() {
     axios
         .get('api/friends')
-        .then(res => state.friends = res.data)
-}
+        .then(res => state.friends = res.data);
+};
 
-getEvents()
-getFriend()
+getEvents();
+getFriend();

@@ -5,8 +5,8 @@ function renderAddFriend() {
             <form onSubmit="addFriend(event)" id="add-friend-form">
                 <section id="errors"></section>
                 <fieldset>
-                    <label for="">Email:</label><br />
-                    <input type="text" name="friend-email" />
+                    <label for="friendEmail">Email:</label><br />
+                    <input type="text" name="friendEmail" />
                 </fieldset>
                 <button>Add Friend</button>
             </form>
