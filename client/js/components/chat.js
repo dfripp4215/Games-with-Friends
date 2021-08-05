@@ -1,23 +1,26 @@
-const chats = require("../../../models/chat_mod");
 
 function renderChat() {
 
-    chats.all_post().then(element => {
+    // axios.get("/api/posts").then(element => {
 
-        const posts = element.data
 
-        console.log(posts)
 
-        posts.forEach(element => {
+    //     console.log(element)
+
+    //     posts.forEach(element => {
             
-            const post_block = document.querySelector('#chat')
-            const h2 = document.createElement('h2')
-            const d = document.createElement('div')
-            h2.innerHTML = element.post_title
-            post_block.appendChild(d)
-            d.appendChild(h2)
-        });
+    //         const post_block = document.querySelector('#chat')
+    //         const h2 = document.createElement('h2')
+    //         const d = document.createElement('div')
+    //         h2.innerHTML = element.post_title
+    //         post_block.appendChild(d)
+    //         d.appendChild(h2)
+    //     });
 
+    // })
+
+    return state.posts.map(post => {
+        console.log(post)
     })
 
 

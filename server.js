@@ -8,6 +8,7 @@ const eventController = require('./controllers/event_controller');
 const friendController = require('./controllers/friend_controller');
 const sessionsController = require("./controllers/sessions_controller");
 const gamesController = require("./controllers/games_controller");
+const postController = require("./controllers/posts_controller");
 const errorHandler = require("./middlewares/error_handler");
 const session = require("express-session");
 
@@ -39,4 +40,5 @@ app.use("/api/sessions", sessionsController);
 app.use("/api/games", gamesController);
 app.use("/api/events", eventController)
 app.use("/api/friends", friendController)
+app.use("/api/posts", postController);
 app.use(errorHandler);
