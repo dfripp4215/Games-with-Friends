@@ -6,10 +6,12 @@ const User = require("../models/user");
 router.post("/", (req, res) => {
   const gameName = req.body.name;
   const userEmail = req.body.userEmail;
+  let user;
+  User.findUserByEmail(userEmail).then((res) => (user = res));
 
-  Game.create(gameName)
+  Game.create(gameName, userEmail)
     .then((res) => {
-      Game.addToUserGame(User.findUserByEmail(userEmail), res.id);
+      Game.addToUserGame(user.id, res.id);
     })
     .then((game) => {
       res.json({

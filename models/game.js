@@ -35,6 +35,11 @@ const Game = {
         console.log("Error:" + String(error));
       });
   },
+  createGameAndUserList(name, userID) {
+    const gameCreated = this.create(name);
+    const addedToUser = this.addToUserGame(userID, gameCreated.id);
+    return gameCreated, addedToUser;
+  },
 };
 // to do list, add to user_games DB
 // query RAWG to get ID and steam ID

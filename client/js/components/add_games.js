@@ -17,15 +17,13 @@ function renderAddGame() {
 
   addGameForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const data = Object.fromEntries(new FormData(addGameForm), [
-      "userEmail",
-      userData.email,
-    ]);
+    let formData = new FormData(addGameForm);
+    formData.append("userEmail", userData.email);
+    const data = Object.fromEntries(formData);
     axios
       .post("/api/games", data)
       .then((res) => {
         window.location = "/";
-        console.log(res);
       })
       .catch((errorRes) => {
         document.querySelector("#errors").innerHTML =
