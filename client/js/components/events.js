@@ -60,17 +60,17 @@ const eventRender = {
 }
 
 if (userData.user.loggedIn) {
-    eventRender.eventsLoggedIn()
+    eventRender.eventsLoggedIn();
 } else {
-    eventRender.eventsLoggedOut()
-}
+    eventRender.eventsLoggedOut();
+};
 
 
 function createEvent(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const form = event.target
-    const data = Object.fromEntries(new FormData(form))
+    const form = event.target;
+    const data = Object.fromEntries(new FormData(form));
 
     axios.post('/api/events', data)
         .then(successfulResponse => {
@@ -80,19 +80,19 @@ function createEvent(event) {
         .catch(errorResponse => {
             document.querySelector('#errors')
                 .innerHTML = errorResponse.response.data.message
-        })
-}
+        });
+};
 
 function deleteEvent(event) {
-    const deleteBtn = event.target
-    const eventDom = deleteBtn.closest('.event')
-    const eventId = eventDom.dataset.id
+    const deleteBtn = event.target;
+    const eventDom = deleteBtn.closest('.event');
+    const eventId = eventDom.dataset.id;
 
     axios
         .delete(`/api/${eventId}`)
         .then(() => {
             eventDom.remove()
-        })
-}
+        });
+};
 
 
