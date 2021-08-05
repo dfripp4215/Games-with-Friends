@@ -17,9 +17,10 @@ router.get('/', (req, res) => {
 router.post('/', validateFriend, (req, res) => {
 
     const friendEmail = req.body.friendEmail;
+    const emailWrapped = `{${friendEmail}}`
     const userEmail = req.body.userEmail;
 
-    Friend.addFriend(friendEmail, userEmail)
+    Friend.addFriend(emailWrapped, userEmail)
         .then(event => res.json({
             event: event,
             message: "Added Friend successfully"
