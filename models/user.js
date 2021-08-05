@@ -10,6 +10,7 @@ const User = {
       VALUES($1, $2, $3) RETURNING *
     `;
 
+<<<<<<< HEAD
     return db
       .query(sql, [name, email, password_digest])
       .then((dbResponse) => {
@@ -18,15 +19,28 @@ const User = {
       .catch(function (error) {
         console.log("Error:" + String(error));
       });
+=======
+    return db.query(sql, [name, email, password_digest]).then((dbResponse) => {
+      return dbResponse.rows[0];
+    }).catch(function (error) {
+      console.log("Error:" + String(error));
+    })
+>>>>>>> 2785c7f (friends initial commit)
   },
 
   findUserByEmail(email) {
     const sql = `SELECT * FROM users WHERE email = $1`;
 
     return db.query(sql, [email]).then((dbResponse) => {
+<<<<<<< HEAD
       return dbResponse.rows[0];
     });
   },
+=======
+      return dbResponse.rows[0]
+    })
+  }
+>>>>>>> 2785c7f (friends initial commit)
 };
 
 module.exports = User;
