@@ -5,9 +5,11 @@ const validateFriend = require("../middlewares/friends/validate_friend");
 
 const router = express.Router();
 
+
+// If we use sessions to populate friends list then there's no need for this get request.
 router.get('/', (req, res) => {
 
-    const userEmail = req.body.userEmail
+    const userEmail = req.body.email
 
     Friend
         .findFriends(userEmail)
@@ -21,10 +23,9 @@ router.post('/', validateFriend, (req, res) => {
     const userEmail = req.body.userEmail;
 
     Friend.addFriend(emailWrapped, userEmail)
-        .then(event => res.json({
-            event: event,
-            message: "Added Friend successfully"
-        }));
+        .then(friend => {
+            res.json(friend)
+        });
 })
 
 module.exports = router;

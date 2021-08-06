@@ -13,7 +13,7 @@ function getEvents() {
 function getFriend() {
     axios
         .get('api/friends')
-        .then(response => state.friends = response.data);
+        .then(response => {state.friends = response.data});
 };
 
 getEvents();

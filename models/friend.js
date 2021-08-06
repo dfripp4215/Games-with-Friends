@@ -2,11 +2,11 @@ const db = require("../db/db");
 
 const Friend = {
   findFriends(email) {
-    const sql = `SELECT friends FROM users WHERE email = $1`;
+    const sql = `SELECT UNNEST(friends) FROM users WHERE email = $1`;
 
     return db
       .query(sql, [email]).then((dbResponse) => {
-        return dbResponse.rows[0]
+        return dbResponse.rows
       })
       .catch(function (error) {
         console.log("Error:" + String(error));

@@ -25,9 +25,7 @@ function addFriend(event) {
     axios
         .post('/api/friends', data)
         .then(successfulResponse => {
-            console.log(successfulResponse)
             const newFriend = successfulResponse.data
-            console.log(newFriend)
             state.friends.push(newFriend)
         })
         .catch(errorResponse => {
