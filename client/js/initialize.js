@@ -13,11 +13,10 @@ function getEvents() {
 function getFriend() {
     axios
         .get('api/friends')
-        .then(res => state.friends = res.data);
+        .then(response => state.friends = response.data);
 };
 
-if (userData.email !== '') {
-    getEvents();
-    getFriend();
-}
+getEvents();
+getFriend();
+
 

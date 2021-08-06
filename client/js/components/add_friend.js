@@ -27,6 +27,7 @@ function addFriend(event) {
         .then(successfulResponse => {
             console.log(successfulResponse)
             const newFriend = successfulResponse.data
+            console.log(newFriend)
             state.friends.push(newFriend)
         })
         .catch(errorResponse => {

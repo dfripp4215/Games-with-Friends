@@ -8,11 +8,12 @@ function validateFriend(req, res, next) {
 
     if (isBlank(friendEmail)) {
         throw validationError("Users Email is required")
-    } else if (findFriend(friendEmail)) {
-        throw validationError("User not found")
     } else if (userEmail === '') {
         throw validationError("Please login to add friends")
-    }
+    }// } else if (findFriend(friendEmail)) {
+    //     throw validationError("User not found")
+
+    // Friend finder isn't working.
 
     next()
 }
