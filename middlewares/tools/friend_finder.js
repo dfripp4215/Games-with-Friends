@@ -1,7 +1,7 @@
 const User = require('../../models/user')
 
 function findFriend(friendEmail) {
-    return User.findUserByEmail(friendEmail).then(res => res.email)
+    return User.findUserByEmail(friendEmail) ? true : false
 }
 
 module.exports = findFriend

@@ -7,7 +7,7 @@ function validateFriend(req, res, next) {
 
     if (isBlank(friendEmail)) {
         throw validationError("Users Email is required")
-    } else if (!findFriend(friendEmail)) {
+    } else if (findFriend(friendEmail)) {
         throw validationError("User not found")
     }
 
