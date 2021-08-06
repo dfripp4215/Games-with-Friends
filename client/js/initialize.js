@@ -16,7 +16,7 @@ function getFriend() {
         .then(res => state.friends = res.data);
 };
 
-if (userData.email !== null) {
+if (userData.email !== '') {
     getEvents();
     getFriend();
 }
