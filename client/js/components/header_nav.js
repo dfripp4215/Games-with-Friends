@@ -42,7 +42,7 @@ function render(component) {
         renderAddGame()
     }
     if (component === 'library') {
-        console.log("no library")
+        renderLibrary()
     }
     if (component === 'profile') {
         console.log("no profile yet")

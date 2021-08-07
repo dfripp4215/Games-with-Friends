@@ -10,6 +10,6 @@ let userData = localStorage.getObject("userData");
 
 if (userData === null) {
   localStorage.setObject("userData", {
-    user: { name: "", email: "", loggedIn: false },
+    user: { id: 0, name: "", email: "", loggedIn: false },
   });
 }
