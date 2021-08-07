@@ -82,7 +82,7 @@ function deleteEvent(event) {
 };
 
 function friendSelector() {
-    if (state.friends.length > 0) {
+    if (userData.loggedIn) {
         return state.friends.map(friend => `
             <input type="checkbox" id="${friend}" class='friend' name="friend">
             <label for="${friend}">${friend}</label>

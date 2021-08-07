@@ -9,8 +9,8 @@ const router = express.Router();
 // If we use sessions to populate friends list then there's no need for this get request.
 router.get('/', (req, res) => {
 
-    // Temporary userEmail to get events working
-    const userEmail = 'test3@test'
+    
+    const userEmail = req.query.userEmail
 
     Friend
         .findFriends(userEmail)

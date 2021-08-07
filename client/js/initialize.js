@@ -1,7 +1,8 @@
 // Create the initial data to use in our app
-const state = {
+
+let state = {
     events: [],
-    friends: [],
+    friends: []
 };
 
 function getEvents() {
@@ -12,8 +13,8 @@ function getEvents() {
 
 function getFriend() {
     axios
-        .get('api/friends')
-        .then(response => {state.friends = response.data.map(friend => friend.unnest)});
+        .get(`api/friends?userEmail=${userData.email}`)
+        .then(response => { state.friends = response.data.map(friend => friend.unnest) });
 };
 
 getEvents();
