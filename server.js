@@ -10,6 +10,9 @@ const sessionsController = require("./controllers/sessions_controller");
 const gamesController = require("./controllers/games_controller");
 const errorHandler = require("./middlewares/error_handler");
 const session = require("express-session");
+particlesJS.load('particles-js', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});
 
 const app = express();
 const port = process.env.PORT || 3000;
