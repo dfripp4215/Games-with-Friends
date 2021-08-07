@@ -5,7 +5,7 @@ const validateEvent = require("../middlewares/events/validate_events");
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    const userEmail = req.body.userEmail
+    const userEmail = req.query.userEmail
 
     Event
         .findAll(userEmail)
@@ -14,9 +14,10 @@ router.get('/', (req, res) => {
 
 router.post('/', validateEvent, (req, res) => {
 
-    const { userEmail, friends, date } = req.body;
+    const { userEmail, friend, date } = req.body;
+    const emailWrapped = `{${friend}}`
 
-    Event.create(userEmail, friends, date)
+    Event.create(userEmail, emailWrapped, date)
         .then(event => res.json({
             event: event,
             message: "Created event successfully"

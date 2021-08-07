@@ -20,7 +20,6 @@ function addFriend(event) {
     let formData = new FormData(event.target);
     formData.append("userEmail", userData.email);
     const data = Object.fromEntries(formData);
-    console.log(data)
 
     axios
         .post('/api/friends', data)

@@ -3,7 +3,7 @@ const db = require("../db/db");
 const Event = {
     create(userEmail, invitedFriends, date) {
 
-        const sql = `INSERT INTO events(user_email, invited_Friends, date) VALUES($1, $2, $3) RETURNING *`;
+        const sql = `INSERT INTO events(user_email, invited_friends, date) VALUES($1, $2, $3) RETURNING *`;
 
         return db.query(sql, [userEmail, invitedFriends, date]).then(dbRes => dbRes.rows[0]);
     },

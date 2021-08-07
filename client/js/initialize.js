@@ -7,8 +7,12 @@ let state = {
 
 function getEvents() {
     axios
-        .get('/api/events')
-        .then(response => state.events = response.data);
+        .get(`/api/events?userEmail=${userData.email}`)
+        .then(response => {
+            console.log(response)
+            state.events = response.data
+            eventGetter()
+        });
 };
 
 function getFriend() {
