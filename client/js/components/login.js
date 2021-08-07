@@ -26,7 +26,7 @@ function renderLogin() {
     axios
       .post("/api/sessions", data)
       .then((session) => {
-        // window.location = "/";
+        window.location = "/";
         localStorage.setObject("userData", session.data.user);
       })
       .catch((errorRes) => {

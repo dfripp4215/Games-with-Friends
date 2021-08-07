@@ -17,5 +17,15 @@ router.post("/", validateUser, (req, res) => {
   });
 });
 
+router.get("/", (req, res) => {
+  
+  User.findGamesOwned(req.query.id).then((gamesOwned) => {
+    res.send({
+      gamesOwned: gamesOwned,
+    });
+  });
+});
+
+
 
 module.exports = router;

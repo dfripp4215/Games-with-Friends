@@ -27,6 +27,14 @@ const User = {
       return dbResponse.rows[0];
     });
   },
+  findGamesOwned(id) {
+    const sql = `SELECT * FROM user_games LEFT JOIN games ON user_games.game_id = games.id WHERE user_id = $1`;
+
+    return db.query(sql, [id]).then((dbResponse) => {
+      return dbResponse.rows;
+    });
+
+  }
 };
 
 module.exports = User;
