@@ -1,7 +1,7 @@
 function renderAddGame() {
   document.querySelector("#main-content").innerHTML = `
   <section class="add-game">
-  <h1>Add game to your library</h1>
+  <h1>Add game to library</h1>
   <form action="/addGame" method="POST" id="add-game-form">
     <section id="errors"></section>
     <fieldset>
