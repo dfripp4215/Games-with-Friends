@@ -6,25 +6,28 @@ body {
     "nav"
     "main"
     "footer";
-  height: 80%;
-  width: 80%;
+  height: 100vh;
+  width: 80vw;
   max-width: 2000px;
   padding: 0 10vh;
   margin: auto;
-  background-color: rgb(152, 152, 152);
+  background-color: rgb(27, 40, 56);
+  color: rgb(199, 213, 224);
+}
+
+.content {
+  background-color: rgb(42, 71, 94);
 }
 
 #header-nav {
   grid-area: nav;
   height: 100%;
-  border: 1px solid black;
 }
 
 nav {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
   height: 100%;
-  background-color: white;
 }
 
 .navigation ul {
@@ -52,7 +55,8 @@ nav {
 
 main {
   grid-area: main;
-  border: 1px solid pink;
+  border-top: 1px solid rgb(23, 26, 33);
+  border-bottom: 1px solid rgb(23, 26, 33);
   display: grid;
   grid-template-areas:
     "content content calender"
@@ -62,17 +66,16 @@ main {
 
 .main-content {
   grid-area: content;
-  border: 1px solid blue;
-}
+  border-right: 1px solid rgb(23, 26, 33);
 
 .calender {
   grid-area: calender;
-  border: 1px solid violet;
+  border: 1px solid rgb(102, 192, 244);
 }
 
 .chat {
   grid-area: chat;
-  border: 1px solid orange;
+  border: 1px solid rgb(102, 192, 244);
 }
 
 footer {
@@ -87,4 +90,33 @@ footer {
 }
 
 button {
+  display: inline-block;
+  padding: 0.46em 1.6em;
+  border: 0.1em solid #000000;
+  margin: 0 0.2em 0.2em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000000;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  background-color: #ffffff;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+button:hover {
+  text-shadow: 0 0 2em rgba(255, 255, 255, 1);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+#particles-js canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  margin: 0;
+  left: 0;
 }
