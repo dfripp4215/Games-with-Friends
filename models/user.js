@@ -10,14 +10,11 @@ const User = {
       VALUES($1, $2, $3) RETURNING *
     `;
 
-    return db
-      .query(sql, [name, email, password_digest])
-      .then((dbResponse) => {
-        return dbResponse.rows[0];
-      })
-      .catch(function (error) {
-        console.log("Error:" + String(error));
-      });
+    return db.query(sql, [name, email, password_digest]).then((dbResponse) => {
+      return dbResponse.rows[0];
+    }).catch(function (error) {
+      console.log("Error:" + String(error));
+    })
   },
 
   findUserByEmail(email) {

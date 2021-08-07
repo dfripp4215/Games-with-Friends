@@ -5,7 +5,8 @@ CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   name TEXT,
   email TEXT,
-  password_digest TEXT
+  password_digest TEXT,
+  friends TEXT []
 );
 
 CREATE TABLE games(
@@ -18,8 +19,8 @@ CREATE TABLE games(
 CREATE TABLE events(
   id SERIAL PRIMARY KEY,
   time TIMESTAMP,
-  userId TEXT,
-  friends TEXT [],
+  user_email TEXT,
+  invited_friends TEXT [],
   date DATE NOT NULL
 );
 
