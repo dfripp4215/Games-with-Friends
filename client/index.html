@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,34 +12,30 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    <script
-    type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
-    async> </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer> </script>
 
-    <script src='/js/storage.js' defer>    </script>
+    <script src='/js/storage.js' defer></script>
+    <script src='/js/initialize.js' defer></script>
     <script src='/js/components/header_nav.js' defer></script>
     <script src='/js/components/sign_up.js' defer></script>
     <script src='/js/components/login.js' defer></script>
     <script src='/js/components/add_games.js' defer></script>
+    <script src='/js/components/events.js' defer></script>
+    <script src='/js/components/add_friend.js' defer></script>
     <script src='/js/components/library.js' defer></script>
+
 </head>
+
 <body>
     <header id='header-nav'></header>
     <main>
         <section id="main-content" class="main-content">
             This is where the main sections stuff goes
         </section>
-        <section class="event-container">
-            <h2>Your Events</h2>
-            <div id='events-box'>
-                <ul id='events-list'>
-
-                </ul>
-            </div>
-        </section>
+        <section class="event-container" id='event-container'></section>
         <section class="chat">Chat section</section>
     </main>
     <footer>This is the footer</footer>
 </body>
+
 </html>

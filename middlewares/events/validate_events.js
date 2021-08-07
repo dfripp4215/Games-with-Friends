@@ -8,7 +8,7 @@ function validateEvent(req, res, next) {
     if (isBlank(date)) {
         throw validationError("Date is required")
 
-    } else if (isBlank(friends)) {   
+    } else if (friends.length === 0) {   
         throw validationError("Must choose at least 1 friend")
     }
     next()

@@ -38,6 +38,10 @@ nav {
   align-items: flex-end;
 }
 
+.material-icons {
+  cursor: pointer;
+}
+
 .mode-slider {
   padding-bottom: 20%;
   display: flex;

@@ -14,6 +14,7 @@ function renderHeaderNav() {
         <p>Welcome to Uhno!<p>
             <ul>
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
+                <li class="material-icons add-friend" onClick="render('addFriend')">person_add</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
                 <li class="material-icons profile" onClick="render('profile')">account_circle</li>
                 ${authIcon}
@@ -39,13 +40,16 @@ function render(component) {
         renderLogin()
     }
     if (component === 'addGame') {
-        renderAddGame()
+        console.log("nothing here yet")
     }
     if (component === 'library') {
         renderLibrary()
     }
     if (component === 'profile') {
         console.log("no profile yet")
+    }
+    if (component === 'addFriend') {
+        renderAddFriend()
     }
 }
 

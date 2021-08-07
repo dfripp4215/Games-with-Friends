@@ -5,27 +5,29 @@ const validateEvent = require("../middlewares/events/validate_events");
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    const userEmail = req.query.userEmail
+
     Event
-        .findAll()
-        .then(events => res.json(events))
-})
+        .findEvents(userEmail)
+        .then(events => res.json(events));
+});
 
 router.post('/', validateEvent, (req, res) => {
 
-    const {date, friends} = req.body
-    const userId = getUserByEmail(req.session.user.email)
-    
-    Event.create(userId, friends, date)
+    const { userEmail, friends, date } = req.body;
+    const wrappedFriends = `{${friends}}`
+
+    Event.create(userEmail, wrappedFriends, date)
         .then(event => res.json({
             event: event,
             message: "Created event successfully"
-        }))
-})
+        }));
+});
 
 router.delete('/:id', (req, res) => {
     Event
         .delete(req.params.id)
-        .then(() => res.json({}))
-})
+        .then(() => res.json({}));
+});
 
-module.exports = router
+module.exports = router;
