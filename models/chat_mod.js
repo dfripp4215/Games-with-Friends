@@ -9,6 +9,13 @@ const Chats = {
     })
   }
 
+  single_post(id) {
+    const sql = `SELECT * FROM posts`;
+    return db.query(sql).then((dbResponse) => {
+      return dbResponse.rows
+    })
+  }
+
 }
 
 module.exports = Chats

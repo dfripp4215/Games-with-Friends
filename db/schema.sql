@@ -33,5 +33,14 @@ CREATE TABLE user_games(
 CREATE TABLE posts(
   id SERIAL PRIMARY KEY,
   post_title TEXT,
-  body TEXT
+  body TEXT,
+  commentCount INTEGER
 );
+
+
+CREATE TABLE comments(
+  id SERIAL PRIMARY KEY,
+  comment TEXT,
+  user_id INTEGER
+);
+
