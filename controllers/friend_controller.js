@@ -1,12 +1,9 @@
 const express = require("express");
 const Friend = require("../models/friend");
-const User = require('../models/user')
 const validateFriend = require("../middlewares/friends/validate_friend");
 
 const router = express.Router();
 
-
-// If we use sessions to populate friends list then there's no need for this get request.
 router.get('/', (req, res) => {
     const userEmail = req.query.userEmail
 

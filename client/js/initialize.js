@@ -9,7 +9,6 @@ function getEvents() {
     axios
         .get(`/api/events?userEmail=${userData.email}`)
         .then(response => {
-            console.log(response)
             state.events = response.data
             eventGetter()
         });

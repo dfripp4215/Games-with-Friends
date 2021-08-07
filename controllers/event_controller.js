@@ -8,16 +8,16 @@ router.get('/', (req, res) => {
     const userEmail = req.query.userEmail
 
     Event
-        .findAll(userEmail)
+        .findEvents(userEmail)
         .then(events => res.json(events));
 });
 
 router.post('/', validateEvent, (req, res) => {
 
-    const { userEmail, friend, date } = req.body;
-    const emailWrapped = `{${friend}}`
+    const { userEmail, friends, date } = req.body;
+    const wrappedFriends = `{${friends}}`
 
-    Event.create(userEmail, emailWrapped, date)
+    Event.create(userEmail, wrappedFriends, date)
         .then(event => res.json({
             event: event,
             message: "Created event successfully"

@@ -16,7 +16,7 @@ const eventRender = {
     
                 <label for="event-date">Event Date:</label>
                 <input type="date" id='event-date' name='date'>
-                <button onclick="getValue()">Create</button>
+                <button>Create</button>
             </form>
         </div>
         `
@@ -37,8 +37,7 @@ if (userData.email) {
 
 function eventGetter() {
     if (state.events.length > 0) {
-        document.querySelector('#events-list').innerHTML = state.events.map(event => {
-            `
+        document.querySelector('#events-list').innerHTML = state.events.map(event => `
             <section class="event" data-id=${event.id}>
                 <li class='event-li'>
                     Date: ${event.date} Friends: <span>${event.invited_friends.join(', ')}</span>
@@ -46,7 +45,7 @@ function eventGetter() {
                 <span class="material-icons delete-event" onClick="deleteEvent(event)">delete</span>
             </section>
             `
-        }).join('')
+        ).join('')
     } else {
         document.querySelector('#events-list').innerHTML = `<p>Oh no! Looks like you have no events. Go below to make one!</p>`
     }
@@ -55,7 +54,7 @@ function eventGetter() {
 function friendSelector() {
     if (userData.loggedIn) {
         document.querySelector('#friends-checkbox').innerHTML = (state.friends.map(friend => `
-            <input type="checkbox" id="${friend}" class='friend' name="friend" value="${friend}" />
+            <input type="checkbox" id="${friend}" class='friend' value="${friend}" />
             <label for="${friend}">${friend}</label>
             `
         ).join(''))
@@ -64,18 +63,21 @@ function friendSelector() {
     }
 };
 
-let friends = ""
 
-function getValue() {
-    
+
+function checkedFriends() {
+
+    let friends = []
     const friendsBox = document.querySelector('#friends-checkbox')
     const inputElements = friendsBox.querySelectorAll('input')
 
     for (let i = 0; i < inputElements.length; i++) {
         if(inputElements[i].checked) {
-            friends.concat(inputElements[i].value)
+            friends.push(inputElements[i].value)
         }
     }
+
+    return friends
 }
 
 function makeEvent(event) {
@@ -83,8 +85,8 @@ function makeEvent(event) {
 
     let formData = new FormData(event.target);
     formData.append("userEmail", userData.email);
-    formData.append("friends", friends)
     const data = Object.fromEntries(formData);
+    data.friends = checkedFriends()
 
     console.log(data)
 
