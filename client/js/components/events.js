@@ -107,7 +107,7 @@ function deleteEvent(event) {
     const eventId = eventDom.dataset.id;
 
     axios
-        .delete(`/api/${eventId}`)
+        .delete(`/api/events/${eventId}`)
         .then(() => {
             eventDom.remove()
         });
