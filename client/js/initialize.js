@@ -1,5 +1,4 @@
 // Create the initial data to use in our app
-
 let state = {
     events: [],
     friends: []
