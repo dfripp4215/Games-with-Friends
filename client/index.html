@@ -11,11 +11,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer> </script>
 
-    <script src='/js/storage.js' defer></script>
+    <script src='/js/particles.js' defer>    </script>
+    <script src='/js/storage.js' defer>    </script>
     <script src='/js/initialize.js' defer></script>
+
     <script src='/js/components/header_nav.js' defer></script>
     <script src='/js/components/sign_up.js' defer></script>
     <script src='/js/components/login.js' defer></script>
@@ -25,17 +29,19 @@
     <script src='/js/components/library.js' defer></script>
 
 </head>
-
-<body>
-    <header id='header-nav'></header>
-    <main>
-        <section id="main-content" class="main-content">
-            This is where the main sections stuff goes
-        </section>
+<body id="particles-js">
+        <header class='content' id='header-nav'></header>
+        <main class='content'>
+            <section id="main-content" class="main-content">
+                This is where the main sections stuff goes
+            </section>
         <section class="event-container" id='event-container'></section>
-        <section class="chat">Chat section</section>
+
+            </section>
+            <section class="chat">Chat section</section>
+        </main>
+        <footer class='content'>This is the footer</footer>
     </main>
-    <footer>This is the footer</footer>
 </body>
 
 </html>
