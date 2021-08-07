@@ -43,7 +43,7 @@ function render(component) {
         console.log("nothing here yet")
     }
     if (component === 'library') {
-        console.log("no library")
+        renderLibrary()
     }
     if (component === 'profile') {
         console.log("no profile yet")

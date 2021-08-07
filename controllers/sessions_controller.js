@@ -13,6 +13,7 @@ router.post("/", validateLogin, (req, res) => {
   User.findUserByEmail(email).then((user) => {
     if(user && bcrypt.compareSync(password, user.password_digest)) {
       req.session.user = {}
+      req.session.user.id = user.id
       req.session.user.name = user.name
       req.session.user.email = user.email
       req.session.user.loggedIn = true

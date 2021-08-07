@@ -84,3 +84,11 @@ footer {
   border: 1px solid black;
   background-color: white;
 }
+
+.games-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+}

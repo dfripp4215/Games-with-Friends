@@ -21,8 +21,24 @@ const User = {
     const sql = `SELECT * FROM users WHERE email = $1`;
 
     return db.query(sql, [email]).then((dbResponse) => {
-      return dbResponse.rows[0]
-    })
+      return dbResponse.rows[0];
+    });
+  },
+
+  findGamesOwned(id) {
+    const sql = `SELECT user_games.id, user_games.user_id, user_games.game_id, games.name AS game_name, games.steam_id FROM user_games LEFT JOIN games ON user_games.game_id = games.id WHERE user_id = $1`;
+
+    return db.query(sql, [id]).then((dbResponse) => {
+      return dbResponse.rows;
+    });
+  },
+
+  deleteFromLibrary(libID) {
+    const sql = `DELETE FROM user_games WHERE id = $1`
+
+    return db.query(sql, [libID]).then((dbResponse) => {
+      return dbResponse.rows;
+    });
   }
 };
 
