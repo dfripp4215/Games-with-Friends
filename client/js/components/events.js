@@ -11,7 +11,7 @@ const eventRender = {
             <h3>Select Friends</h3>
             <form onSubmit="createEvent(event)">
                 <div id='friends-checkbox'>
-                    ${friendSelector()}
+                    
                 </div>
     
                 <label for="event-date">Event Date:</label>
@@ -83,12 +83,12 @@ function deleteEvent(event) {
 
 function friendSelector() {
     if (userData.loggedIn) {
-        return state.friends.map(friend => `
+        document.querySelector('#friends-checkbox').innerHTML = (state.friends.map(friend => `
             <input type="checkbox" id="${friend}" class='friend' name="friend">
             <label for="${friend}">${friend}</label>
             `
-        ).join('')
+        ).join(''))
     } else {
-        return `<p>Oh no! Looks like your friend list is empty. Add some friends to start making events!</p>`
+        document.querySelector('#friends-checkbox').innerHTML =`<p>Oh no! Looks like your friend list is empty. Add some friends to start making events!</p>`
     }
 }

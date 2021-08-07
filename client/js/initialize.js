@@ -14,7 +14,10 @@ function getEvents() {
 function getFriend() {
     axios
         .get(`api/friends?userEmail=${userData.email}`)
-        .then(response => { state.friends = response.data.map(friend => friend.unnest) });
+        .then(response => { 
+            state.friends = response.data.map(friend => friend.unnest)
+            friendSelector()
+        });
 };
 
 getEvents();

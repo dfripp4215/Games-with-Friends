@@ -1,4 +1,3 @@
-const User = require('../../models/user')
 const db = require("../../db/db");
 
 function findFriend(friendEmail) {
@@ -7,7 +6,7 @@ function findFriend(friendEmail) {
 
     return db
       .query(sql, [friendEmail]).then((dbResponse) => {
-        return dbResponse[0].
+        return dbResponse.rows[0]
       })
       .catch(function (error) {
         console.log("Error:" + String(error));
