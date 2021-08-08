@@ -89,21 +89,17 @@ main {
 
 .event-container {
   grid-area: events;
-  border: 1px solid rgb(102, 192, 244);
   max-width: 400px;
 }
 .chat {
   display: grid;
   grid-template-rows: 20px;
-  border: 1px solid orange;
 }
 .chat-topics {
   display: grid;
   grid-template-rows: 20px;
-  border: 1px solid orange;
 }
 .chat-topics div {
-  border: 1px solid rgb(159, 12, 49);
   width: auto;
   height: 100px;
 }
