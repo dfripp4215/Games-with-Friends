@@ -35,11 +35,22 @@ const Game = {
         console.log("Error:" + String(error));
       });
   },
+
   createGameAndUserList(name, userID) {
     const gameCreated = this.create(name);
     const addedToUser = this.addToUserGame(userID, gameCreated.id);
     return gameCreated, addedToUser;
   },
+
+  findAllFriendsGames(friendId) {
+    const sql = 'SELECT * FROM user_games WHERE user_id = $1'
+
+    return db
+      .query(sql, [friendId])
+      .then((dbResponse) => {
+        return dbResponse.rows;
+      })
+  }
 };
 // to do list, add to user_games DB
 // query RAWG to get ID and steam ID

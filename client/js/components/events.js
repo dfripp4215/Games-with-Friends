@@ -30,7 +30,7 @@ const eventRender = {
     },
 }
 
-if (userData.email) {
+if (userData.loggedIn) {
     eventRender.eventsLoggedIn();
 } else {
     eventRender.eventsLoggedOut();

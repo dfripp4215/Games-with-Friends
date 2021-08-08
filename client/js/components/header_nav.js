@@ -40,7 +40,7 @@ function render(component) {
         renderLogin()
     }
     if (component === 'addGame') {
-        console.log("nothing here yet")
+        renderAddGame()
     }
     if (component === 'library') {
         renderLibrary()
