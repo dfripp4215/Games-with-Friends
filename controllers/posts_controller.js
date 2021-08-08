@@ -18,4 +18,12 @@ router.get('/:id', (req, res) => {
 })
 
 
+router.delete('/:id', (req, res) => {
+  const postId = req.params.id
+  Chats
+    .delete_post(postId)
+    .then(post => res.json())
+})
+
+
 module.exports = router
