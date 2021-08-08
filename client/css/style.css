@@ -91,11 +91,22 @@ main {
   grid-area: calender;
   border: 1px solid rgb(102, 192, 244);
 }
-
 .chat {
-  grid-area: chat;
-  border-top: 1px solid rgb(23, 26, 33);
+  display: grid;
+  grid-template-rows: 20px;
+  border: 1px solid orange;
 }
+.chat-topics {
+  display: grid;
+  grid-template-rows: 20px;
+  border: 1px solid orange;
+}
+.chat-topics div {
+  border: 1px solid rgb(159, 12, 49);
+  width: auto;
+  height: 100px;
+}
+
 
 footer {
   grid-area: footer;

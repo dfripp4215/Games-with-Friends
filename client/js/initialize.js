@@ -1,7 +1,8 @@
 // Create the initial data to use in our app
 let state = {
     events: [],
-    friends: []
+    friends: [],
+    posts: []
 };
 
 function getEvents() {
@@ -22,5 +23,17 @@ function getFriend() {
         });
 };
 
+
+// function getPosts() {
+//   axios
+//       .get(`/api/posts`)
+//       .then(response => {
+//           state.posts = response.data
+//       });
+// };
+
+
+
 getEvents();
 getFriend();
+// getPosts();
