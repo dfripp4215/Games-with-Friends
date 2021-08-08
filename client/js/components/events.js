@@ -8,9 +8,9 @@ const eventRender = {
             </section>
     
             <h2>Create Event</h2>
-            <h3>Select Friends</h3>
             <section id="errors"></section>
             <form onSubmit="makeEvent(event)" class="create-event-form">
+            <label for="friends">Select Friends:</label>
                 <div id='friends-checkbox'>
                     
                 </div>

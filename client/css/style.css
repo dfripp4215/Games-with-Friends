@@ -67,7 +67,7 @@ main {
   border-bottom: 1px solid rgb(23, 26, 33);
   display: grid;
   grid-template-areas:
-    "content content calender"
+    "content content events"
     "content content chat";
   background-color: white;
 }
@@ -87,9 +87,10 @@ main {
   width: 100%;
 }
 
-.calender {
-  grid-area: calender;
+.event-container {
+  grid-area: events;
   border: 1px solid rgb(102, 192, 244);
+  max-width: 400px;
 }
 .chat {
   display: grid;
