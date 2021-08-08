@@ -1,27 +1,18 @@
-function renderSinglePost (id){
+function renderSinglePost(id){
 
     axios.get(`/api/posts/${id}`).then(post => {
 
-        console.log(post)
-
-        var singlePost = post.data
+        var singlePost = post.data[0]
 
         console.log(singlePost)
+
+        document.querySelector("#main-content").innerHTML = `
+        <section class="single-post">
+        <h1>${singlePost.post_title}</h1>
+      </section>`;        
         
-        // singlePost.forEach(element => {
-            
-        //     const post_block = document.querySelector('#chat')
-        //     const h2 = document.createElement('h2')
-        //     const d = document.createElement('div')
-        //     const a = document.createElement('a')
-        //     a.href = `/api/posts/${element.id}`
-        //     h2.innerHTML = element.post_title
-        //     post_block.appendChild(d)
-        //     d.appendChild(a)
-        //     a.appendChild(h2)
-        // });
     })
 }
 
 
-renderSinglePost(1)
+// renderSinglePost(id)

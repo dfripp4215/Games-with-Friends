@@ -21,7 +21,15 @@ const Chats = {
     return db.query(sql, [title, body_text]).then((dbResponse) => {
       return dbResponse.rows
     })
-  }
+  }, 
+
+  delete_post(post_id)) {
+    const sql = `DELETE FROM posts WHERE id = $1`;
+    return db.query(sql, [post_id]).then((dbResponse) => {
+      return dbResponse.rows
+    })
+  }, 
+
 
 }
 

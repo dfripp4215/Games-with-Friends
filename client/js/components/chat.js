@@ -9,15 +9,15 @@ function renderChat() {
         var postsAll = posts.data
 
         console.log(postsAll)
-        postsAll.forEach(element => {
+        postsAll.forEach(post => {
             
+            console.log(post)
             const post_block = document.querySelector('#chat-topics')
             const h2 = document.createElement('h2')
             const d = document.createElement('div')
             const a = document.createElement('a')
-            a.href = `/message_board.html?post_id=${element.id}`
-            h2.innerHTML = element.post_title
             post_block.appendChild(d)
+            a.innerHTML = `<a href="" onClick="renderSinglePost(${post.id});return false;">${post.post_title}</a>`
             d.appendChild(a)
             a.appendChild(h2)
         });
