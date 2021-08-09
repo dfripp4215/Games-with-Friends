@@ -87,23 +87,95 @@ main {
   width: 100%;
 }
 
+.friendsList-form {
+  height: 300px;
+}
+
 .event-container {
   grid-area: events;
-  border: 1px solid rgb(102, 192, 244);
-  max-width: 400px;
 }
+
+.event-container h2 {
+  text-align: center;
+}
+
+#events-list {
+  list-style: none;
+}
+
+section .event {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5em;
+  padding: 17px;
+  background-color: #1b2838;
+  border-radius: 20px;
+}
+
+.event-li {
+  display: grid;
+  gap: 3.5px;
+}
+
+.delete-event {
+  padding-top: 0.3em;
+}
+
+#events-box {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#friends-checkbox {
+  display: grid;
+  grid-template-columns: 1em 8em 1em 8em;
+  gap: 0.25em;
+  padding: 1em 0em;
+}
+
+#friends-checkbox input {
+  display: flex;
+}
+#friends-checkbox label {
+  padding: 0.2em;
+}
+
+#event-date {
+  margin: 0.5em;
+}
+
+.friendList-form {
+  width: 20em;
+  padding: 14px;
+  margin: 1em;
+}
+
+#games-to-compare {
+  max-width: 11em;
+}
+
+#games-to-compare h2 {
+  text-align: left;
+}
+
+
+#games-to-compare ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
 .chat {
   display: grid;
   grid-template-rows: 20px;
-  border: 1px solid orange;
 }
+
 .chat-topics {
   display: grid;
   grid-template-rows: 20px;
-  border: 1px solid orange;
 }
+
 .chat-topics div {
-  border: 1px solid rgb(159, 12, 49);
   width: auto;
   height: 100px;
 }
@@ -155,9 +227,9 @@ form {
   background-color: #1b2838;
   border-radius: 20px;
   box-sizing: border-box;
-  min-height: 500px;
+  max-height: 500px;
   padding: 20px;
-  min-width: 320px;
+  max-width: 320px;
 }
 
 label {

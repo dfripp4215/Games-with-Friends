@@ -1,15 +1,16 @@
 const gamesRender = {
     loggedIn() {
         document.querySelector('.main-content').innerHTML = `
+        <h2>Compare games with friends</h2>
         <section id="errors"></section>
 
         <section id='friends-selector'>
 
             <form onChange="friendsGames(event)" method="GET" class="friendList-form">
-                <label for="">Friend:</label><br />
+                <label for="">Select a friend:</label><br />
                 <div id='friends-list-container'>
                     <select onChange='getFriendEmail(event)'name='friendList' id='friendList'>
-                        
+                        <option disabled selected value> -- Select a friend -- </option>
                     </select>
                 </div>
                 
@@ -26,7 +27,7 @@ const gamesRender = {
 
             <h2>Friends Games</h2>
             <ul id='friends-games'>
-
+                <p>Select a friend to see their games</p>
             </ul>
 
         </section>
@@ -50,7 +51,7 @@ if (userData.loggedIn) {
 
 function friendsList() {
     if (userData.loggedIn) {
-        document.querySelector('#friendList').innerHTML = (state.friends.map(friend => `
+        document.querySelector('#friendList').innerHTML += (state.friends.map(friend => `
                 <option value="${friend}" name='${friend}' class='friendEmail'>${friend}</option>
             `
         ).join(''))
