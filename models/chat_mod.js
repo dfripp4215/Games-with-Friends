@@ -16,9 +16,9 @@ const Chats = {
     })
   },
 
-  update_post(title, body_text) {
-    const sql = `UPDATE posts SET post_title = $1, body = $2`;
-    return db.query(sql, [title, body_text]).then((dbResponse) => {
+  update_post(title, body_text, id) {
+    const sql = `UPDATE posts SET post_title = $1, body = $2 WHERE id = $3`;
+    return db.query(sql, [title, body_text, id]).then((dbResponse) => {
       return dbResponse.rows
     })
   }, 
@@ -29,6 +29,13 @@ const Chats = {
       return dbResponse.rows
     })
   }, 
+
+  create_post(title, body_text, user_id, user_name) {
+    const sql = `INSERT INTO posts (post_title, body, user_id, user_name) VALUES ($1, $2, $3, $4)`;
+    return db.query(sql, [title, body_text, user_id, user_name]).then((dbResponse) => {
+      return dbResponse.rows
+    })
+  }
 
 
 }

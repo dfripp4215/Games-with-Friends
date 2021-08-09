@@ -10,6 +10,8 @@ const sessionsController = require("./controllers/sessions_controller");
 const gamesController = require("./controllers/games_controller");
 const postController = require("./controllers/posts_controller");
 const steamController = require("./controllers/steam_controller");
+const commentController = require("./controllers/comment_controller");
+
 const errorHandler = require("./middlewares/error_handler");
 const session = require("express-session");
 
@@ -43,4 +45,5 @@ app.use("/api/steam", steamController);
 app.use("/api/events", eventController)
 app.use("/api/friends", friendController)
 app.use("/api/posts", postController);
+app.use("/api/comments", commentController);
 app.use(errorHandler);
