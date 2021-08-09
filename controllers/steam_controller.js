@@ -1,6 +1,5 @@
 const express = require("express");
 const axios = require("axios");
-const Steam = require("../models/steam");
 const router = express.Router();
 
 router.post("/", (req, res) => {
