@@ -8,7 +8,7 @@ const gamesRender = {
             <form onChange="friendsGames(event)" method="GET" class="friendList-form">
                 <label for="">Friend:</label><br />
                 <div id='friends-list-container'>
-                    <select onChange=''name='friendList' id='friendList'>
+                    <select onChange='getFriendEmail(event)'name='friendList' id='friendList'>
                         
                     </select>
                 </div>
@@ -75,8 +75,22 @@ function usersGames() {
         });
 }
 
+let friendEmail
+let selection = document.getElementById("friendList");
+
+function getFriendEmail(event) {
+    var value = event.target.options[event.target.selectedIndex].value;
+    friendEmail = value;
+};
+
 function friendsGames(event) {
     event.preventDefault()
+
+    axios
+        .get(`api/games?friendEmail=${friendEmail}`)
+        .then(response => {
+            state.friendsGames = response.data.map(game => game.game_name)
+        });
 
     document.querySelector('#friends-games').innerHTML = (state.friendsGames.map(game => `
         <li id='${game}'>
