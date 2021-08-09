@@ -26,33 +26,6 @@ function getFriend() {
         });
 };
 
-// function getFriendsGames() {
-//     let friendEmail
-
-
-//     var selection = document.getElementById("friendList");
-
-//     selection.onchange = function (event) {
-//         var value = event.target.options[event.target.selectedIndex].value;
-//         friendEmail = value;
-//     };
-// }
-
-
-// axios
-//     .get(`api/games`, {
-//         params: {
-//             friendEmail: friendEmail
-//         }
-//     })
-//     .then(response => {
-//         state.friendsGames = response.data.map(game => game.game_name)
-//         friendsList()
-//         usersGames()
-//     });
-// };
-
-
 // function getPosts() {
 //   axios
 //       .get(`/api/posts`)

@@ -90,12 +90,20 @@ function friendsGames(event) {
         .get(`api/games?friendEmail=${friendEmail}`)
         .then(response => {
             state.friendsGames = response.data.map(game => game.game_name)
+            if (state.friendsGames.length > 0) {
+                document.querySelector('#friends-games').innerHTML = (state.friendsGames.map(game => `
+                    <li id='${game}'>
+                    ${game}
+                    </li>
+                    `
+                ).join(''))
+            } else {
+                document.querySelector('#friends-games').innerHTML = `
+                    <p>Your friend hasn't added any games</p>
+                `
+            }
+
         });
 
-    document.querySelector('#friends-games').innerHTML = (state.friendsGames.map(game => `
-        <li id='${game}'>
-            ${game}
-        </li>
-    `
-    ).join(''))
+
 }

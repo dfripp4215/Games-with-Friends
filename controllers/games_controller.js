@@ -5,7 +5,6 @@ const User = require("../models/user");
 
 router.get('/', (req, res) => {
   const friendEmail = req.query.friendEmail
-  console.log(friendEmail)
   
   User
     .findUserByEmail(friendEmail)
