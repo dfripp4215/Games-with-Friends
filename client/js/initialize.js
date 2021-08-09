@@ -3,7 +3,8 @@ let state = {
     events: [],
     friends: [],
     posts: [],
-    friendsGames: []
+    friendsGames: [],
+    singlePost: []
 };
 
 function getEvents() {
@@ -26,16 +27,6 @@ function getFriend() {
         });
 };
 
-// function getPosts() {
-//   axios
-//       .get(`/api/posts`)
-//       .then(response => {
-//           state.posts = response.data
-//       });
-// };
-
-
 
 getEvents();
 getFriend();
-// getPosts();
