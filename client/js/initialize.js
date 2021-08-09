@@ -3,7 +3,6 @@ let state = {
     events: [],
     friends: [],
     posts: [],
-    steamGames: [],
     friendsGames: [],
     singlePost: []
 };
