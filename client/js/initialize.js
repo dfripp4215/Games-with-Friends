@@ -3,7 +3,7 @@ let state = {
     events: [],
     friends: [],
     posts: [],
-    friendsGames: []
+    friendsGames: [],
     singlePost: []
 };
 
