@@ -59,11 +59,14 @@ function renderComments(id) {
                 const d = document.createElement('div')
                 const p = document.createElement('p')
                 const p2 = document.createElement('p')
-
+                const h2 = document.createElement('h2')
+                d.setAttribute("class", "comment")
 
               comment_block.appendChild(d)
               p.innerHTML =`${comment.comment}`
-              p2.innerHTML = `Commented by: ${comment.user_name}`
+              p2.innerHTML = `Commented made by: ${comment.user_name}`
+              h2.innerHTML = `#${comment.id}`
+              d.appendChild(h2)
               d.appendChild(p)
               d.appendChild(p2)
 

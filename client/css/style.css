@@ -178,9 +178,15 @@ section .event {
   text-align: left;
 }
 
+
 .chat-head li{
  list-style: none;
 }
+
+.chat-head h2{
+  padding-left: 5px;
+  margin-left: 5px;
+ }
 
 .chat-topics {
   display: grid;
@@ -190,20 +196,46 @@ section .event {
 
 .chat-topics div {
   width: auto;
-  height: 100px;
+  height: 50px;
 }
+
+.chat-topics a{
+  width: auto;
+  height: 50px;
+  padding-left: 5px;
+}
+
+.chat-topics a:hover { text-decoration: none; color:yellow; }
+.chat-topics a:focus { text-decoration: none; color:orange; }
+.chat-topics a:active { text-decoration: none; color:teal; }
+.chat-topics a:visited { 
+  text-decoration: none; 
+  color: orange; 
+ }
 
 .chat-topics h2 {
   margin-bottom: 5px;
+  padding-left: 5px;
+  margin-left:  5px;
+  margin-right: 5px;
+
 }
 .chat-topics p {
   margin-top: 0px;
+  padding-left: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
+.chat-single {
+
+  width: 400px;
+  padding-left: 40px;
+  padding-top: 40px;
+}
 .single-post {
 
   text-align: left;
-  
   width: 500px;
 }
 .single-post h2 {
@@ -250,26 +282,46 @@ section .event {
   width: 500px;  
 }
 
-.comment-section div {
-  height: 75px;
+
+.comment-section .comment {
+  height: 100px;
   background-color: rgb(27, 40, 56);
   text-align: left;
 }
+
+
+.comment-section .chat-single {
+  padding-top: 10px;
+  text-align: center;
+}
 .comment-section p {
+  padding-top: 5px;
   margin-top: 2px;
+  margin-bottom: 5px;
   font-size: 12px;
   padding-left: 5px;
   font-weight: 300;
 }
 
-.addCommentButton {
+.comment-section h2 {
+  padding-top: 5px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+
+}
+
+.comment-section .addCommentButton {
+  background-color: rgb(27, 40, 56);
   margin-top: 2px;
   font-size: 12px;
   text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 footer {
-  grid-area: footer;
+  text-align: center;
   border: 1px solid black;
   background-color: white;
 }
