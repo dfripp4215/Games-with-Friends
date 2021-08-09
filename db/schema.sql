@@ -6,8 +6,7 @@ CREATE TABLE users(
   name TEXT,
   email TEXT,
   password_digest TEXT,
-  friends TEXT [],
-  steam_id INTEGER,
+  friends TEXT []
 );
 
 CREATE TABLE games(
