@@ -2,7 +2,8 @@
 let state = {
     events: [],
     friends: [],
-    posts: []
+    posts: [],
+    friendsGames: []
 };
 
 function getEvents() {
@@ -11,18 +12,19 @@ function getEvents() {
         .then(response => {
             state.events = response.data
             eventGetter()
+            usersGames()  
         });
 };
 
 function getFriend() {
     axios
         .get(`api/friends?userEmail=${userData.email}`)
-        .then(response => { 
+        .then(response => {
             state.friends = response.data.map(friend => friend.unnest)
             friendSelector()
+            friendsList()
         });
 };
-
 
 // function getPosts() {
 //   axios

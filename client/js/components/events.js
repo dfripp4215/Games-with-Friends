@@ -30,7 +30,7 @@ const eventRender = {
     },
 }
 
-if (userData.email) {
+if (userData.loggedIn) {
     eventRender.eventsLoggedIn();
 } else {
     eventRender.eventsLoggedOut();
@@ -41,7 +41,7 @@ function eventGetter() {
         document.querySelector('#events-list').innerHTML = state.events.map(event => `
             <section class="event" data-id=${event.id}>
                 <li class='event-li'>
-                    Date: ${event.date} Friends: <span>${event.invited_friends.join(', ')}</span>
+                    Date: ${event.date.slice(0, 10)} <span id='inv-friends'>Friends: ${event.invited_friends.join(', ')}</span>
                 </li>
                 <span class="material-icons delete-event" onClick="deleteEvent(event)">delete</span>
             </section>
