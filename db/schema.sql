@@ -6,7 +6,8 @@ CREATE TABLE users(
   name TEXT,
   email TEXT,
   password_digest TEXT,
-  friends TEXT []
+  friends TEXT [],
+  steam_id INTEGER,
 );
 
 CREATE TABLE games(
@@ -34,13 +35,24 @@ CREATE TABLE posts(
   id SERIAL PRIMARY KEY,
   post_title TEXT,
   body TEXT,
-  commentCount INTEGER
+  commentCount INTEGER,
+  user_id INTEGER,
+  user_name TEXT
 );
 
 
 CREATE TABLE comments(
   id SERIAL PRIMARY KEY,
   comment TEXT,
-  user_id INTEGER
+  user_name TEXT,
+  user_id INTEGER,
+  user_email TEXT,
+  post_id INTEGER
 );
 
+DROP TABLE comments;
+DROP TABLE users;
+DROP TABLE games;
+DROP TABLE events;
+DROP TABLE user_games;
+DROP TABLE posts;

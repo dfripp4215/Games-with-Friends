@@ -19,6 +19,23 @@ const Game = {
       });
   },
 
+  createSteam(name, steamID) {
+    //creates game, need to add to check if game already exists
+    const sql = `
+      INSERT INTO games (name, steam_id)
+      VALUES($1, $2) RETURNING *
+    `;
+
+    return db
+      .query(sql, [name, steam_id])
+      .then((dbResponse) => {
+        return dbResponse.rows[0];
+      })
+      .catch(function (error) {
+        console.log("Error:" + String(error));
+      });
+  },
+
   addToUserGame(userID, gameID) {
     const sql = `
       INSERT INTO user_games (user_id,

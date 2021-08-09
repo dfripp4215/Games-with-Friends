@@ -13,6 +13,7 @@ function renderHeaderNav() {
         <div class="navigation">
         <p>Welcome to Uhno!<p>
             <ul>
+                <li class="material-icons add-game" onClick="render('steamGames')">steam_games</li>
                 <li class="material-icons add-game" onClick="render('addGame')">control_point</li>
                 <li class="material-icons add-friend" onClick="render('addFriend')">person_add</li>
                 <li class="material-icons library" onClick="render('library')">games</li>
@@ -46,10 +47,13 @@ function render(component) {
         renderLibrary()
     }
     if (component === 'profile') {
-        console.log("no profile yet")
+        renderProfile()
     }
     if (component === 'addFriend') {
         renderAddFriend()
+    }
+    if (component === 'steamGames') {
+        renderSteamPage()
     }
 }
 

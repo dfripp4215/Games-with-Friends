@@ -8,7 +8,7 @@ function renderLibrary() {
     document.querySelector("#main-content").innerHTML =  `
     <section class="library">
     <section id="errors"></section>
-      <h1>Your Library</h1>
+      <h2>Your Library</h2>
       ${htmlLib}
     </section>
     `
