@@ -4,7 +4,7 @@ This SPA website was completed by a team of 4 students during their study with G
 
 For security - all user passwords are encrypted before they get sent to the database and no PSQL inputs the user can make are able to alter the database maliciously.
 
-I want to give a quick thanks to the instructors Zara, Alex and Kasun for helping us throughout the course.
+I want to give a quick thanks to the instructors Alistair, Alex and Kasun for helping us throughout the course.
 
 ## Link
 
@@ -22,6 +22,8 @@ https://young-citadel-44054.herokuapp.com/
 * Chat globaly with others online.
 * Edit/delete your own chats.
 * Comment on other peoples chats.
+* Access your steam library with the steam API
+* Display and filter your steam games
 
 ## Technologies Used
 
